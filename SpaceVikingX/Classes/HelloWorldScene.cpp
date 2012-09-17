@@ -89,6 +89,17 @@ HelloWorld::HelloWorld()
     label->setColor(ccc3(0,0,255));
     label->setPosition(ccp( s.width/2, s.height-50));
     
+//    增加一个sprite
+    CCSprite *aSprite = CCSprite::create("an1_anim1.png");
+    aSprite->setPosition(ccp(s.width/2, s.height-50));
+    addChild(aSprite,0);
+//    移动sprite
+    CCPoint target = ccp(100, 100);
+    this->runAction(CCSequence::create(
+   CCMoveTo::create(2 ,target),
+//   CCCallFunc::create(this, callfunc_selector(Player::removeTarget))
+   NULL));
+    
     scheduleUpdate();
 }
 

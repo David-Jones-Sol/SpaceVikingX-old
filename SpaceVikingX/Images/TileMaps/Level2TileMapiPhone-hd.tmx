@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="10" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="TilesTextureAtlas" tilewidth="64" tileheight="64" spacing="1" margin="1">
+  <image source="TilesTextureAtlas.png" width="256" height="512"/>
+ </tileset>
+ <layer name="GroundLayer" width="60" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSigLeACYm4g5gRijhHABwAaAwI7
+  </data>
+ </layer>
+ <layer name="RockColumnsLayer" width="60" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztjjEOACAIAxkQ/v9jV9JQGB3sTWCvETMhhBDiPafMOWRTj72j03WS5NstBzzcWdfLHOC5cVjmg9N1guTbLQ4e7tu/v3ABQQcApQ==
+  </data>
+ </layer>
+ <layer name="RockBoulderLayer" width="60" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAb0BMxAzATEjkeKkylHLHGLl8Mkz41A/nAEAW1wAOg==
+  </data>
+ </layer>
+</map>

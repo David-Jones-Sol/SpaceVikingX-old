@@ -40,11 +40,13 @@ static id s_sharedDirectorCaller;
 
 +(id) sharedDirectorCaller
 {
+    
     if (s_sharedDirectorCaller == nil)
     {
+        
         s_sharedDirectorCaller = [CCDirectorCaller new];
     }
-    
+     
     return s_sharedDirectorCaller;
 }
 

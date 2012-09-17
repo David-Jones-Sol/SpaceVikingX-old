@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tiltingAnim</key>
+	<dict>
+		<key>filenamePrefix</key>
+		<string>radar_</string>
+		<key>delay</key>
+		<real>0.25</real>
+		<key>animationFrames</key>
+		<string>1,2,3,4,5,5,4,3,2,1,2,3,4,5</string>
+	</dict>
+	<key>takingAHitAnim</key>
+	<dict>
+		<key>filenamePrefix</key>
+		<string>radar_</string>
+		<key>delay</key>
+		<real>0.2</real>
+		<key>animationFrames</key>
+		<string>5,5,7,8,8</string>
+	</dict>
+	<key>blowingUpAnim</key>
+	<dict>
+		<key>filenamePrefix</key>
+		<string>radar_</string>
+		<key>delay</key>
+		<real>0.2</real>
+		<key>animationFrames</key>
+		<string>5,6,7,8,9,10,11,12,13,14,15,16,17</string>
+	</dict>
+	<key>transmittingAnim</key>
+	<dict>
+		<key>filenamePrefix</key>
+		<string>radar_</string>
+		<key>delay</key>
+		<real>0.3</real>
+		<key>animationFrames</key>
+		<string>5,6,5,6,5,6,5</string>
+	</dict>
+</dict>
+</plist>
