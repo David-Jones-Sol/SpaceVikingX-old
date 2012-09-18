@@ -14,7 +14,7 @@ public:
 
 	virtual bool init();
  
-	static BackgroundLayer* create();
+	CREATE_FUNC(BackgroundLayer);
 
 };
 

@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		5F7E0C761606C3CA00DF3F51 /* BackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C751606C3C900DF3F51 /* BackgroundLayer.cpp */; };
 		5F7E0C7D1606E1C000DF3F51 /* GameplayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C7C1606E1C000DF3F51 /* GameplayLayer.cpp */; };
-		5F7E0C801606E2FE00DF3F51 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C7E1606E2FD00DF3F51 /* GameScene.cpp */; };
+		5F7E0C8D160735B100DF3F51 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C7E1606E2FD00DF3F51 /* GameScene.cpp */; };
+		5F7E0C9016074EA900DF3F51 /* ARocker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C8E16074EA700DF3F51 /* ARocker.cpp */; };
 		5F9467301605E0A000CF970B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F94672F1605E0A000CF970B /* QuartzCore.framework */; };
 		5F9467321605E0A000CF970B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9467311605E0A000CF970B /* OpenGLES.framework */; };
 		5F9467341605E0A000CF970B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9467331605E0A000CF970B /* OpenAL.framework */; };
@@ -454,6 +455,10 @@
 		5F946C051605EC4300CF970B /* EscapeTheFutureV3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F946B351605EC4300CF970B /* EscapeTheFutureV3.mp3 */; };
 		5F946C061605EC4300CF970B /* SpaceDesertV2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F946B361605EC4300CF970B /* SpaceDesertV2.mp3 */; };
 		5F946C071605EC4300CF970B /* VikingPreludeV1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F946B371605EC4300CF970B /* VikingPreludeV1.mp3 */; };
+		5FA604A21608241C005A7078 /* SneakyButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FA604991608241C005A7078 /* SneakyButton.cpp */; };
+		5FA604A31608241C005A7078 /* SneakyButtonSkinnedBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6049B1608241C005A7078 /* SneakyButtonSkinnedBase.cpp */; };
+		5FA604A41608241C005A7078 /* SneakyJoystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6049D1608241C005A7078 /* SneakyJoystick.cpp */; };
+		5FA604A51608241C005A7078 /* SneakyJoystickSkinnedBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FA6049F1608241C005A7078 /* SneakyJoystickSkinnedBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -463,6 +468,9 @@
 		5F7E0C7C1606E1C000DF3F51 /* GameplayLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameplayLayer.cpp; sourceTree = "<group>"; };
 		5F7E0C7E1606E2FD00DF3F51 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		5F7E0C7F1606E2FE00DF3F51 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		5F7E0C8E16074EA700DF3F51 /* ARocker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ARocker.cpp; sourceTree = "<group>"; };
+		5F7E0C8F16074EA800DF3F51 /* ARocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARocker.h; sourceTree = "<group>"; };
+		5F7E0C951607686100DF3F51 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		5F94672B1605E0A000CF970B /* SpaceVikingX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceVikingX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F94672F1605E0A000CF970B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5F9467311605E0A000CF970B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1173,6 +1181,14 @@
 		5F946B351605EC4300CF970B /* EscapeTheFutureV3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EscapeTheFutureV3.mp3; sourceTree = "<group>"; };
 		5F946B361605EC4300CF970B /* SpaceDesertV2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpaceDesertV2.mp3; sourceTree = "<group>"; };
 		5F946B371605EC4300CF970B /* VikingPreludeV1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = VikingPreludeV1.mp3; sourceTree = "<group>"; };
+		5FA604991608241C005A7078 /* SneakyButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyButton.cpp; sourceTree = "<group>"; };
+		5FA6049A1608241C005A7078 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
+		5FA6049B1608241C005A7078 /* SneakyButtonSkinnedBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyButtonSkinnedBase.cpp; sourceTree = "<group>"; };
+		5FA6049C1608241C005A7078 /* SneakyButtonSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButtonSkinnedBase.h; sourceTree = "<group>"; };
+		5FA6049D1608241C005A7078 /* SneakyJoystick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyJoystick.cpp; sourceTree = "<group>"; };
+		5FA6049E1608241C005A7078 /* SneakyJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystick.h; sourceTree = "<group>"; };
+		5FA6049F1608241C005A7078 /* SneakyJoystickSkinnedBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyJoystickSkinnedBase.cpp; sourceTree = "<group>"; };
+		5FA604A01608241C005A7078 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1266,6 +1282,7 @@
 		5F9467581605E0A100CF970B /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				5FA604971608241C005A7078 /* joystick */,
 				5F9467591605E0A100CF970B /* cocos2dx */,
 				5F9469181605E0A500CF970B /* CocosDenshion */,
 				5F94692C1605E0A500CF970B /* extensions */,
@@ -2180,6 +2197,9 @@
 				5F7E0C7C1606E1C000DF3F51 /* GameplayLayer.cpp */,
 				5F7E0C7E1606E2FD00DF3F51 /* GameScene.cpp */,
 				5F7E0C7F1606E2FE00DF3F51 /* GameScene.h */,
+				5F7E0C8E16074EA700DF3F51 /* ARocker.cpp */,
+				5F7E0C8F16074EA800DF3F51 /* ARocker.h */,
+				5F7E0C951607686100DF3F51 /* GameConfig.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2565,6 +2585,22 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
+		5FA604971608241C005A7078 /* joystick */ = {
+			isa = PBXGroup;
+			children = (
+				5FA604991608241C005A7078 /* SneakyButton.cpp */,
+				5FA6049A1608241C005A7078 /* SneakyButton.h */,
+				5FA6049B1608241C005A7078 /* SneakyButtonSkinnedBase.cpp */,
+				5FA6049C1608241C005A7078 /* SneakyButtonSkinnedBase.h */,
+				5FA6049D1608241C005A7078 /* SneakyJoystick.cpp */,
+				5FA6049E1608241C005A7078 /* SneakyJoystick.h */,
+				5FA6049F1608241C005A7078 /* SneakyJoystickSkinnedBase.cpp */,
+				5FA604A01608241C005A7078 /* SneakyJoystickSkinnedBase.h */,
+			);
+			name = joystick;
+			path = libs/joystick;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2575,6 +2611,7 @@
 				5F9467271605E0A000CF970B /* Sources */,
 				5F9467281605E0A000CF970B /* Frameworks */,
 				5F9467291605E0A000CF970B /* Resources */,
+				5F7E0C961607703F00DF3F51 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2841,11 +2878,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F7E0C961607703F00DF3F51 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\n\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\n\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\n\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5F9467271605E0A000CF970B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F7E0C8D160735B100DF3F51 /* GameScene.cpp in Sources */,
 				5F94675C1605E0A100CF970B /* CCAction.cpp in Sources */,
 				5F94675F1605E0A100CF970B /* CCActionCamera.cpp in Sources */,
 				5F9467621605E0A100CF970B /* CCActionCatmullRom.cpp in Sources */,
@@ -3062,7 +3116,11 @@
 				5F946A441605E0A800CF970B /* HelloWorldScene.cpp in Sources */,
 				5F7E0C761606C3CA00DF3F51 /* BackgroundLayer.cpp in Sources */,
 				5F7E0C7D1606E1C000DF3F51 /* GameplayLayer.cpp in Sources */,
-				5F7E0C801606E2FE00DF3F51 /* GameScene.cpp in Sources */,
+				5F7E0C9016074EA900DF3F51 /* ARocker.cpp in Sources */,
+				5FA604A21608241C005A7078 /* SneakyButton.cpp in Sources */,
+				5FA604A31608241C005A7078 /* SneakyButtonSkinnedBase.cpp in Sources */,
+				5FA604A41608241C005A7078 /* SneakyJoystick.cpp in Sources */,
+				5FA604A51608241C005A7078 /* SneakyJoystickSkinnedBase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3125,6 +3183,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3149,6 +3208,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SpaceVikingX/Prefix.pch;

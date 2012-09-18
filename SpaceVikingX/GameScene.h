@@ -14,8 +14,7 @@
 #include "GameplayLayer.h"
 class GameScene :public cocos2d::CCScene{
 public:
- 
-    static GameScene *create();
+    CREATE_FUNC(GameScene);
     bool init();
 
 private:
