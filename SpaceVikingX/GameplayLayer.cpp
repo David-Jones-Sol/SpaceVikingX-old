@@ -14,8 +14,18 @@ bool GameplayLayer::init(){
     bRet = CCLayer::init();
 	if ( bRet )
 	{
-        vikingSprite = CCSprite::create("sv_anim_1.png");
-        CCSize screenSize = CCDirector::sharedDirector()->getWinSize();
+    CCSize screenSize = CCDirector::sharedDirector()->getWinSize();
+       
+//        vikingSprite = CCSprite::create("sv_anim_1.png");
+  CCSpriteBatchNode *chapter2SpriteBatchNode;
+        CCSpriteFrameCache::sharedSpriteFrameCache()->
+         addSpriteFramesWithFile("scene1atlasiPhone.plist");          
+        chapter2SpriteBatchNode =
+        CCSpriteBatchNode::
+        CCSpriteBatchNode::create("scene1atlasiPhone.png");
+        
+        vikingSprite = CCSprite::createWithSpriteFrameName("sv_anim_1.png");
+        
         vikingSprite->setPosition(ccp(screenSize.width/2, screenSize.height/2));
         this->addChild(vikingSprite,5);
 
@@ -113,6 +123,5 @@ void GameplayLayer::applyJoystick(SneakyJoystick *aJoystick, CCNode *tempNode, f
 void GameplayLayer::update(float deltaTime)
 {
 
-    this->applyJoystick(leftJoystick,vikingSprite,
-        deltaTime);
+    this->applyJoystick(leftJoystick,vikingSprite,deltaTime);
 }
