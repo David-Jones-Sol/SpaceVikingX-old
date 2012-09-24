@@ -15,26 +15,62 @@ bool GameplayLayer::init(){
 	if ( bRet )
 	{
     CCSize screenSize = CCDirector::sharedDirector()->getWinSize();
-       
-//        vikingSprite = CCSprite::create("sv_anim_1.png");
-  CCSpriteBatchNode *chapter2SpriteBatchNode;
+        this->setTouchEnabled(true);
+        srandom(time(NULL)); // Seeds the random number generator
+
         CCSpriteFrameCache::sharedSpriteFrameCache()->
          addSpriteFramesWithFile("scene1atlasiPhone.plist");          
-        chapter2SpriteBatchNode =
-        CCSpriteBatchNode::
+        sceneSpriteBatchNode =
+       
         CCSpriteBatchNode::create("scene1atlasiPhone.png");
         
-        vikingSprite = CCSprite::createWithSpriteFrameName("sv_anim_1.png");
-        
-        vikingSprite->setPosition(ccp(screenSize.width/2, screenSize.height/2));
-        this->addChild(vikingSprite,5);
+        this->addChild(sceneSpriteBatchNode,0);                // 3
+        this->initJoystickAndButtons();                           // 4
+        Viking *viking = Viking::createWithSpriteFrameName("sv_anim_1.png");
+        viking->setJoystick(*leftJoystick);
+        viking->setjumpButton(*jumpButton);
+        viking->setattackButton(*attackButton);
+        viking->setPosition(ccp(screenSize.width*0.35f,screenSize.height*0.14f));
+        viking->setCharacterHealth(100);
 
-        this->initJoystickAndButtons();
+        sceneSpriteBatchNode->addChild(viking,kVikingSpriteZValue,kVikingSpriteTagValue);
+        this->createObjectOfType(kEnemyTypeRadarDish, 100, ccp(screenSize.width*0.878f,screenSize.height*0.13f), 10);
+        
+
+
+//        this->initJoystickAndButtons();
         this->scheduleUpdate();
 
     }
     return bRet;
 }
+
+void GameplayLayer::createObjectOfType(GameObjectType objectType,int initialHealth,cocos2d::CCPoint spawnLocation,int ZValue ){
+    if (objectType == kEnemyTypeRadarDish) {
+        CCLOG("Creating the Radar Enemy");
+        RadarDish *radarDish =RadarDish::createWithSpriteFrameName("radar_1.png");
+        radarDish->setCharacterHealth(initialHealth);
+        radarDish->setPosition(spawnLocation);
+        sceneSpriteBatchNode->addChild(radarDish,ZValue,kRadarDishTagValue);
+
+    }
+}
+void GameplayLayer::createPhaseWithDirection(PhaserDirection phaserDirection,cocos2d::CCPoint spawnPosition){
+    CCLOG("Placeholder for chapter 5, see below");
+    return;
+}
+void GameplayLayer::update(float deltaTime)
+{
+    CCArray *listOfGameObjects = sceneSpriteBatchNode->getChildren();
+     GameCharacter* tempChar;
+    for (int i=0; i<listOfGameObjects->count(); ++i) {
+       tempChar = (GameCharacter*)listOfGameObjects->objectAtIndex(i);
+        tempChar->updateStateWithDeltaTime(deltaTime, listOfGameObjects);
+    }
+
+    //    this->applyJoystick(leftJoystick,vikingSprite,deltaTime);
+}
+
 void GameplayLayer::initJoystickAndButtons() {
     CCSize screenSize = CCDirector::sharedDirector()->getWinSize();    
     CCRect joystickBaseDimensions = CCRect(0, 0, 128.0f, 128.0f);                      
@@ -120,8 +156,4 @@ void GameplayLayer::applyJoystick(SneakyJoystick *aJoystick, CCNode *tempNode, f
         CCLOG("Attack button is pressed.");                       // 5
     }
 }
-void GameplayLayer::update(float deltaTime)
-{
 
-    this->applyJoystick(leftJoystick,vikingSprite,deltaTime);
-}

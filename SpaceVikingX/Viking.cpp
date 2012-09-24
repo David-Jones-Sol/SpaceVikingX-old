@@ -184,6 +184,7 @@ void Viking::updateStateWithDeltaTime(float deltaTime, CCArray* listOfGameObject
     // Change this to keep the object count from querying it each time
     CCRect myBoundingBox = this->adjustedBoundingBox();
     GameCharacter* character;
+ 
     for (int i=0; i<listOfGameObjects->count(); ++i) {
      character = (GameCharacter*)listOfGameObjects->objectAtIndex(i);
         if (character->getTag() == kVikingSpriteTagValue) continue;
@@ -298,4 +299,20 @@ bool Viking::init() {
         
     }
     return bRet;
+}
+Viking* Viking::createWithSpriteFrameName(const char *pszSpriteFrameName) {
+    CCSpriteFrame *pFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(pszSpriteFrameName);
+    
+    char msg[256] = {0};
+    sprintf(msg, "Invalid spriteFrameName: %s", pszSpriteFrameName);
+    CCAssert(pFrame != NULL, msg);
+    
+    Viking *pobSprite = new Viking();
+    if (pobSprite && pobSprite->initWithSpriteFrame(pFrame))
+    {
+        pobSprite->autorelease();
+        return pobSprite;
+    }
+    CC_SAFE_DELETE(pobSprite);
+    return NULL;
 }

@@ -12,8 +12,10 @@
 #include "cocos2d.h"
 #include "Constants.h"
 #include "CommonProtocols.h"
+
 USING_NS_CC;
 using namespace std;
+
 class GameObject :public CCSprite  {
 public:
     CC_SYNTHESIZE(bool,isActive,IsActive)
@@ -22,11 +24,13 @@ public:
     CC_SYNTHESIZE(GameObjectType, gameObjectType, GameObjectType)
     CREATE_FUNC(GameObject)
     
-    virtual bool init();
+    virtual  bool init();
     virtual  void changeState(CharacterStates newState);
     virtual  void updateStateWithDeltaTime(float dt,CCArray *listOfGameObjects);
     virtual  CCRect adjustedBoundingBox();
     virtual  CCAnimation * loadPlistForAnimationWithName(string animationName,string className);
+   
+   
 private:
     
 };

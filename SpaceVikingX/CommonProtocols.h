@@ -1,6 +1,8 @@
 //  CommonProtocols.h
 //  SpaceViking
 
+#ifndef __SpaceVikingX__CommonProtocols__
+#define __SpaceVikingX__CommonProtocols__
 typedef enum {
     kDirectionLeft,
     kDirectionRight
@@ -47,7 +49,7 @@ typedef enum {
 class GameplayLayerDelegate
 {
 public:
-    virtual void createObjectOfType(GameObjectType objectType,int initialHealth,cocos2d::CCPoint spwanLocation,int ZValue )=0;
+    virtual void createObjectOfType(GameObjectType objectType,int initialHealth,cocos2d::CCPoint spawnLocation,int ZValue )=0;
     virtual void createPhaseWithDirection(PhaserDirection phaserDirection,cocos2d::CCPoint spawnPosition)=0;
 };
-
+#endif /* defined(__SpaceVikingX__CommonProtocols__) */

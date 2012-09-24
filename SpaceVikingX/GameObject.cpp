@@ -9,13 +9,17 @@
 #include "GameObject.h"
 
 using namespace std;
+
 bool GameObject::init(){
     bool bRet = false;
-
-    CCLOG("GameObject init");
-    screenSize = CCDirector::sharedDirector()->getWinSize();
-    isActive = true;
-    gameObjectType = kObjectTypeNone;
+    bRet = CCSprite::init();
+    if (bRet) {
+        CCLOG("GameObject init");
+        screenSize = CCDirector::sharedDirector()->getWinSize();
+        isActive = true;
+        gameObjectType = kObjectTypeNone;
+        return bRet;
+    }
     return bRet;
 }
 
@@ -36,24 +40,24 @@ CCAnimation* GameObject::loadPlistForAnimationWithName(string animationName ,str
     
     CCAnimation *animationToReturn = NULL;
 
-    // 1: Get the Path to the plist file 
-    string fullFileName = className+".plist";
+    string fullFileName = className.substr(2)+".plist";
+
     const char* fullPath = cocos2d::CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(fullFileName.c_str());
- // 2: Read in the plist file
+
     CCDictionary *plistDictionary = CCDictionary::createWithContentsOfFileThreadSafe(fullPath);
-    // 3: If the plistDictionary was null, the file was not found.
+   
     if (plistDictionary == NULL) {
         CCLOG("Error reading plist: %s.plist", className.c_str());
         return NULL; // No Plist Dictionary or file found
     }
-    // 4: Get just the mini-dictionary for this animation
+  
     CCDictionary *animationSettings =
      static_cast<CCDictionary*>( plistDictionary->objectForKey(animationName));
     if (animationSettings == NULL) {
         CCLOG("Could not locate AnimationWithName:%s",animationName.c_str());
         return NULL;
     }
-    // 5: Get the delay value for the animation
+
     float animationDelay = animationSettings->valueForKey("delay")->floatValue();
 
     animationToReturn = CCAnimation::create();

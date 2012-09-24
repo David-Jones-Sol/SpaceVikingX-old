@@ -19,7 +19,9 @@ typedef enum {
 } LastPunchType;
 class Viking : public GameCharacter{
 public:
-    ~Viking();
+    CREATE_FUNC(Viking);
+   static Viking* createWithSpriteFrameName(const char *pszSpriteFrameName);
+//    ~Viking();
     bool isCarryingWeapon();
     int getWeaponDamage();
     void applyJoystick(SneakyJoystick *aJoystick ,float deltaTime);
@@ -56,6 +58,7 @@ public:
     CC_SYNTHESIZE(SneakyJoystick, joystick, Joystick)
     CC_SYNTHESIZE(SneakyButton, jumpButton, jumpButton)
     CC_SYNTHESIZE(SneakyButton, attackButton, attackButton)
+
 private:
     LastPunchType myLastPunch;
     bool isCarryingMallet;

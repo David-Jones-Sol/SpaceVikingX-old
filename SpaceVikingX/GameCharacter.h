@@ -14,8 +14,9 @@ class GameCharacter :public GameObject{
 public:
     CC_SYNTHESIZE(int,characterHealth,CharacterHealth)
     CC_SYNTHESIZE(CharacterStates, characterState, CharacterState)
-  virtual  void checkAndClampSpritePosition();
-    int getWeaponDamage();
+    virtual  void checkAndClampSpritePosition();
+    virtual int getWeaponDamage();
+  
 private:
   
 };
