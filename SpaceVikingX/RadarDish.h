@@ -16,7 +16,7 @@ public:
     static RadarDish* createWithSpriteFrameName(const char *pszSpriteFrameName);
     void changeState(CharacterStates newState);
     void updateStateWithDeltaTime(float deltaTime, CCArray *listOfGameObjects);
-    CCRect adjustedBoundingBox();
+//    CCRect adjustedBoundingBox();
     void initAnimations();
     bool init();
     CC_SYNTHESIZE_RETAIN(CCAnimation*, tiltingAnim, TiltingAnim)

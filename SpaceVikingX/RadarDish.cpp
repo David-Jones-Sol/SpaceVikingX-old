@@ -86,8 +86,8 @@ void RadarDish::updateStateWithDeltaTime(float deltaTime, CCArray *listOfGameObj
     }
     
 }
-CCRect RadarDish::adjustedBoundingBox(){
-}
+//CCRect RadarDish::adjustedBoundingBox(){
+//}
 void RadarDish::initAnimations(){
     
     this->setTiltingAnim(this->loadPlistForAnimationWithName("tiltingAnim",typeid(this).name()));
