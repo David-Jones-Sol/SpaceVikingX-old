@@ -60,8 +60,6 @@ void RadarDish::updateStateWithDeltaTime(float deltaTime, CCArray *listOfGameObj
     
     vikingCharacter =
     (GameCharacter*)this->getParent()->getChildByTag(kVikingSpriteTagValue);
-                  
-    
     
     CCRect vikingBoudingBox =
     vikingCharacter->adjustedBoundingBox();                 // 3

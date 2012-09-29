@@ -145,6 +145,7 @@ CCRect& CCRect::operator= (const CCRect& other)
 void CCRect::setRect(float x, float y, float width, float height)
 {
     // Only support that, the width and height > 0
+  
     CCAssert(width >= 0.0f && height >= 0.0f, "width and height of Rect must not less than 0.");
 
     origin.x = x;

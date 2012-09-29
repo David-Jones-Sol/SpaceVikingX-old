@@ -24,10 +24,10 @@ public:
     CREATE_FUNC(GameplayLayer);
     virtual bool init();
 //      ~GameplayLayer();
-     void createObjectOfType(GameObjectType objectType,int initialHealth,cocos2d::CCPoint spawnLocation,int ZValue );
-     void createPhaseWithDirection(PhaserDirection phaserDirection,cocos2d::CCPoint spawnPosition);
+     void createObjectOfType(GameObjectType objectType,int initialHealth,CCPoint spawnLocation,int ZValue );
+     void createPhaseWithDirection(PhaserDirection phaserDirection,CCPoint spawnPosition);
     void initJoystickAndButtons();
-    void applyJoystick(SneakyJoystick *aJoystick, CCNode *tempNode, float deltaTime);
+//    void applyJoystick(SneakyJoystick *aJoystick, CCNode *tempNode, float deltaTime);
     void update(float deltaTime);
 private:
     CCSprite *vikingSprite;

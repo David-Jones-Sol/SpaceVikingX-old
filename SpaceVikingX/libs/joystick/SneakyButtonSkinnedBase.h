@@ -16,7 +16,7 @@ class SneakyButtonSkinnedBase : public cocos2d::CCLayer
 	CREATE_FUNC(SneakyButtonSkinnedBase);
 	virtual ~SneakyButtonSkinnedBase();
 	bool init();
-	void watchSelf(cocos2d::CCTime delta);
+	void watchSelf(float delta);
 	void setContentSize(cocos2d::CCSize s);
 	void setDefaultSprite(cocos2d::CCSprite *aSprite);
 	void setActivatedSprite(cocos2d::CCSprite *aSprite);

@@ -12,7 +12,9 @@
 #include "cocos2d.h"
 #include "BackgroundLayer.h"
 #include "GameplayLayer.h"
-class GameScene :public cocos2d::CCScene{
+USING_NS_CC;
+
+class GameScene :public CCScene{
 public:
     CREATE_FUNC(GameScene);
     bool init();

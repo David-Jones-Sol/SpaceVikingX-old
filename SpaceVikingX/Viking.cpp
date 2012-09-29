@@ -71,6 +71,7 @@ void Viking::checkAndClampSpritePosition() {
 
 }
 void Viking::changeState(CharacterStates newState){
+              
     this->stopAllActions();
     void* action = NULL;
     void* movementAction = NULL;
@@ -88,7 +89,9 @@ void Viking::changeState(CharacterStates newState){
             if (isCarryingMallet) {
                 action =CCAnimate::create(walkingMalletAnim);
             } else {
-                action =CCAnimate::create(walkingAnim);
+//                action =CCAnimate::create(walkingAnim);
+     
+                action = CCAnimate::create(this->getWalkingAnim());
             }
             break;
         case kStateCrouching:
@@ -110,7 +113,8 @@ void Viking::changeState(CharacterStates newState){
             if (isCarryingMallet) {
                 action =CCAnimate::create(breathingMalletAnim);
             } else {
-                action =CCAnimate::create(breathingAnim);
+
+                action =CCAnimate::create(this->getBreathingAnim());
             }
             break;
             
@@ -131,10 +135,10 @@ void Viking::changeState(CharacterStates newState){
     
             } else {
                 // Viking Jumping animation without the Mallet
-                action = CCSequence::create(CCArray::create(
-                    CCAnimate::create(crouchingAnim),
-                    CCAnimate::create(jumpingAnim),
-                    CCAnimate::create(afterJumpingAnim)));
+
+                action = CCSequence::create(CCAnimate::create(crouchingAnim),CCAnimate::create(jumpingAnim),movementAction,CCAnimate::create(afterJumpingAnim),NULL);
+     
+            }
             break;
             
         case kStateAttacking:
@@ -169,9 +173,11 @@ void Viking::changeState(CharacterStates newState){
         this->runAction((CCAction*)action);
     }
 
-}
+
 }
 void Viking::updateStateWithDeltaTime(float deltaTime, CCArray* listOfGameObjects){
+
+    
     if (this->getCharacterState() == kStateDead)
         return; // Nothing to do if the Viking is dead
     
@@ -189,7 +195,8 @@ void Viking::updateStateWithDeltaTime(float deltaTime, CCArray* listOfGameObject
      character = (GameCharacter*)listOfGameObjects->objectAtIndex(i);
         if (character->getTag() == kVikingSpriteTagValue) continue;
         CCRect characterBox = character->adjustedBoundingBox();
-        if (CCRect::CCRectIntersectsRect(myBoundingBox, characterBox)) {
+
+        if (myBoundingBox.intersectsRect(characterBox)) {
             if (character->getGameObjectType() == kEnemyTypePhaser) {
                 this->changeState(kStateTakingDamage);
                 character->changeState(kStateDead);
@@ -209,12 +216,56 @@ void Viking::updateStateWithDeltaTime(float deltaTime, CCArray* listOfGameObject
         }
     }
 
+    this->checkAndClampSpritePosition();
+    if (this->getCharacterState() == kStateIdle||
+        this->getCharacterState() == kStateStandingUp||
+        this->getCharacterState() == kStateWalking||
+        this->getCharacterState() == kStateCrouching||
+        this->getCharacterState() == kStateBreathing) {
+        if (jumpButton->getIsActive()) {
+            this->changeState(kStateJumping);
+        }else if (attackButton->getIsActive()){
+            this->changeState(kStateAttacking);
+        }else if ((joystick->getVelocity().x == 0.0f) && (joystick->getVelocity().y == 0.0f)){
+            if (this->getCharacterState() == kStateCrouching) 
+                this->changeState(kStateStandingUp);
+            
+        }else if (joystick->getVelocity().y<-0.45f){
+            if (this->getCharacterState() !=kStateCrouching) 
+                this->changeState(kStateCrouching);
+            
+        }else if (joystick->getVelocity().x !=0.0f){
+            if (this->getCharacterState() !=kStateWalking) 
+                this->changeState(kStateWalking);
+            this->applyJoystick(joystick,deltaTime);
+        }
+    }
+ 
+    if (this->numberOfRunningActions() == 0) {
+        if (this->getCharacterHealth() <= 0.0f) {
+            this->changeState(kStateDead);
+        }else if (this->getCharacterState() == kStateIdle){
+            millisecondsStayingIdle = millisecondsStayingIdle + deltaTime;
+            if (millisecondsStayingIdle > kVikingIdleTimer) {
+                this->changeState(kStateBreathing);
+            }
+        }else if ((this->getCharacterState() != kStateCrouching) && (this->getCharacterState() != kStateIdle)){
+            millisecondsStayingIdle = 0.0f;
+         
+            this->changeState(kStateIdle);
+            
+        }
+    }
+
+   
 }
 #pragma mark -
 CCRect Viking::adjustedBoundingBox() {
     // Adjust the bouding box to the size of the sprite
     // without the transparent space
-    CCRect vikingBoundingBox = this->boundingBox();
+//    CCRect vikingBoundingBox = this->boundingBox();
+  
+    CCRect vikingBoundingBox = CCRect::CCRect(0,0,100.0f,100.0f);
     float xOffset;
     float xCropAmount = vikingBoundingBox.size.width * 0.5482f;
     float yCropAmount = vikingBoundingBox.size.height * 0.095f;
@@ -246,47 +297,30 @@ CCRect Viking::adjustedBoundingBox() {
 #pragma mark -
 void Viking::initAnimations() {
     
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("breathingAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("breathingMalletAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("walkingAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("walkingMalletAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("crouchingAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("crouchingMalletAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("standingUpAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("standingUpMalletAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("jumpingAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("jumpingMalletAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("afterJumpingAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("afterJumpingMalletAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("rightPunchAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("leftPunchAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("malletPunchAnim"
-                                                               ,typeid(this).name()));
+    this->setBreathingAnim(this->loadPlistForAnimationWithName("breathingAnim",typeid(this).name()));
+    this->setBreathingMalletAnim(this->loadPlistForAnimationWithName("breathingMalletAnim",typeid(this).name()));
+    this->setWalkingAnim(this->loadPlistForAnimationWithName("walkingAnim" ,typeid(this).name()));
+    this->setWalkingMalletAnim(this->loadPlistForAnimationWithName("walkingMalletAnim",typeid(this).name()));
+    this->setCrouchingAnim(this->loadPlistForAnimationWithName("crouchingAnim" ,typeid(this).name()));
+    this->setCrouchingMalletAnim(this->loadPlistForAnimationWithName("crouchingMalletAnim",typeid(this).name()));
+    this->setStandingUpAnim(this->loadPlistForAnimationWithName("standingUpAnim",typeid(this).name()));
+    this->setStandingUpMalletAnim(this->loadPlistForAnimationWithName("standingUpMalletAnim",typeid(this).name()));
+    this->setJumpingAnim(this->loadPlistForAnimationWithName("jumpingAnim"  ,typeid(this).name()));
+    this->setJumpingMalletAnim(this->loadPlistForAnimationWithName("jumpingMalletAnim",typeid(this).name()));
+    this->setAfterJumpingAnim(this->loadPlistForAnimationWithName("afterJumpingAnim",typeid(this).name()));
+    this->setAfterJumpingMalletAnim(this->loadPlistForAnimationWithName("afterJumpingMalletAnim",typeid(this).name()));
+    this->setRightPunchAnim(this->loadPlistForAnimationWithName("rightPunchAnim"  ,typeid(this).name()));
+    this->setLeftPunchAnim(this->loadPlistForAnimationWithName("leftPunchAnim" ,typeid(this).name()));
+    this->setMalletPunchAnim(this->loadPlistForAnimationWithName("malletPunchAnim" ,typeid(this).name()));
 // Taking Damage and Death
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("phaserShockAnim"
-                                                               ,typeid(this).name()));
-    this->setBreathingAnim(this->loadPlistForAnimationWithName("vikingDeathAnim"
-                                                               ,typeid(this).name()));
-    
+    this->setPhaserShockAnim(this->loadPlistForAnimationWithName("phaserShockAnim" ,typeid(this).name()));
+    this->setVikingDeathAnim(this->loadPlistForAnimationWithName("vikingDeathAnim" ,typeid(this).name()));
+
 }
 
 #pragma mark -
 bool Viking::init() {
-    bool  bRet = GameCharacter::init();
+    bool  bRet =true;// = GameCharacter::init();
     if( bRet) {
 //        joystick = nil;
 //        jumpButton = nil;
@@ -310,6 +344,7 @@ Viking* Viking::createWithSpriteFrameName(const char *pszSpriteFrameName) {
     Viking *pobSprite = new Viking();
     if (pobSprite && pobSprite->initWithSpriteFrame(pFrame))
     {
+        pobSprite->init();//create with  这个方法可能要重写
         pobSprite->autorelease();
         return pobSprite;
     }

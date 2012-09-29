@@ -52,7 +52,7 @@ bool SneakyButtonSkinnedBase::init() //Possible errors here
 	return pRet;
 }
 
-void SneakyButtonSkinnedBase::watchSelf(CCTime delta) //Be Careful Here
+void SneakyButtonSkinnedBase::watchSelf(float delta) //Be Careful Here
 {
 	if (!this->button->getStatus()){
 		if(disabledSprite){

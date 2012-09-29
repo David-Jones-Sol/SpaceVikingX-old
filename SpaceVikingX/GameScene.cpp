@@ -10,7 +10,7 @@
 #include "BackgroundLayer.h"
 #include "GameplayLayer.h"
 #include "ARocker.h"
-USING_NS_CC;
+
 
 bool GameScene::init(){
     bool bRet = false;

@@ -41,6 +41,7 @@ CCAnimation* GameObject::loadPlistForAnimationWithName(string animationName ,str
     CCAnimation *animationToReturn = NULL;
 
     string fullFileName = className.substr(2)+".plist";
+    CCLog("fullname:%s",fullFileName.c_str());
 
     const char* fullPath = cocos2d::CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(fullFileName.c_str());
 
@@ -62,6 +63,8 @@ CCAnimation* GameObject::loadPlistForAnimationWithName(string animationName ,str
 
     animationToReturn = CCAnimation::create();
     animationToReturn->setDelayPerUnit(animationDelay);
+    
+   
 //    CCDictionary *framesDict = static_cast<CCDictionary*> (plistDictionary->objectForKey("frames"));
 //    
 //    CCArray *keys = framesDict->allKeys();
@@ -87,20 +90,18 @@ CCAnimation* GameObject::loadPlistForAnimationWithName(string animationName ,str
     
     
     const char* p;
-    
     for (p = strtok(strArr, "," );  p;  p = strtok( NULL, "," ))
     {
 
 //       char* frameNumber = *p;
         string frameName = animationFramePrefix+p+".png";
+
         CCSpriteFrame* sprite =  CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName.c_str());
         animationToReturn->addSpriteFrame(sprite);
         
-  
-        
     }
 
-    
+   
     return animationToReturn;
 }
 

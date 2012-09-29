@@ -7,16 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F38E297160FFF1E00BC6BAA /* CPViking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E28D160FFF1E00BC6BAA /* CPViking.plist */; };
-		5F38E298160FFF1E00BC6BAA /* Digger.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E28E160FFF1E00BC6BAA /* Digger.plist */; };
-		5F38E299160FFF1E00BC6BAA /* EnemyRobot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E28F160FFF1E00BC6BAA /* EnemyRobot.plist */; };
-		5F38E29A160FFF1E00BC6BAA /* fire.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E290160FFF1E00BC6BAA /* fire.plist */; };
-		5F38E29B160FFF1E00BC6BAA /* Health.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E291160FFF1E00BC6BAA /* Health.plist */; };
-		5F38E29C160FFF1E00BC6BAA /* Mallet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E292160FFF1E00BC6BAA /* Mallet.plist */; };
-		5F38E29D160FFF1E00BC6BAA /* PhaserBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E293160FFF1E00BC6BAA /* PhaserBullet.plist */; };
-		5F38E29E160FFF1E00BC6BAA /* RadarDish.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E294160FFF1E00BC6BAA /* RadarDish.plist */; };
-		5F38E29F160FFF1E00BC6BAA /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E295160FFF1E00BC6BAA /* SoundEffects.plist */; };
-		5F38E2A0160FFF1E00BC6BAA /* Viking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F38E296160FFF1E00BC6BAA /* Viking.plist */; };
+		5F59335C1615F0230091ECB9 /* Mallet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F59335A1615F0220091ECB9 /* Mallet.cpp */; };
+		5F5933641615F5CC0091ECB9 /* Health.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F5933621615F5CC0091ECB9 /* Health.cpp */; };
 		5F7E0C761606C3CA00DF3F51 /* BackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C751606C3C900DF3F51 /* BackgroundLayer.cpp */; };
 		5F7E0C7D1606E1C000DF3F51 /* GameplayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C7C1606E1C000DF3F51 /* GameplayLayer.cpp */; };
 		5F7E0C8D160735B100DF3F51 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E0C7E1606E2FD00DF3F51 /* GameScene.cpp */; };
@@ -486,6 +478,10 @@
 		5F38E294160FFF1E00BC6BAA /* RadarDish.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RadarDish.plist; sourceTree = "<group>"; };
 		5F38E295160FFF1E00BC6BAA /* SoundEffects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SoundEffects.plist; sourceTree = "<group>"; };
 		5F38E296160FFF1E00BC6BAA /* Viking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Viking.plist; sourceTree = "<group>"; };
+		5F59335A1615F0220091ECB9 /* Mallet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mallet.cpp; sourceTree = "<group>"; };
+		5F59335B1615F0220091ECB9 /* Mallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mallet.h; sourceTree = "<group>"; };
+		5F5933621615F5CC0091ECB9 /* Health.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Health.cpp; sourceTree = "<group>"; };
+		5F5933631615F5CC0091ECB9 /* Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Health.h; sourceTree = "<group>"; };
 		5F7E0C731606C3A800DF3F51 /* BackgroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		5F7E0C751606C3C900DF3F51 /* BackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundLayer.cpp; sourceTree = "<group>"; };
 		5F7E0C7B1606E1B400DF3F51 /* GameplayLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameplayLayer.h; sourceTree = "<group>"; };
@@ -2708,6 +2704,10 @@
 		5FA64173160A1717007B3E1F /* PowerUps */ = {
 			isa = PBXGroup;
 			children = (
+				5F59335A1615F0220091ECB9 /* Mallet.cpp */,
+				5F59335B1615F0220091ECB9 /* Mallet.h */,
+				5F5933621615F5CC0091ECB9 /* Health.cpp */,
+				5F5933631615F5CC0091ECB9 /* Health.h */,
 			);
 			name = PowerUps;
 			sourceTree = "<group>";
@@ -2746,7 +2746,7 @@
 		5F9467221605E0A000CF970B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 5F9467251605E0A000CF970B /* Build configuration list for PBXProject "SpaceVikingX" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2991,16 +2991,6 @@
 				5F946C051605EC4300CF970B /* EscapeTheFutureV3.mp3 in Resources */,
 				5F946C061605EC4300CF970B /* SpaceDesertV2.mp3 in Resources */,
 				5F946C071605EC4300CF970B /* VikingPreludeV1.mp3 in Resources */,
-				5F38E297160FFF1E00BC6BAA /* CPViking.plist in Resources */,
-				5F38E298160FFF1E00BC6BAA /* Digger.plist in Resources */,
-				5F38E299160FFF1E00BC6BAA /* EnemyRobot.plist in Resources */,
-				5F38E29A160FFF1E00BC6BAA /* fire.plist in Resources */,
-				5F38E29B160FFF1E00BC6BAA /* Health.plist in Resources */,
-				5F38E29C160FFF1E00BC6BAA /* Mallet.plist in Resources */,
-				5F38E29D160FFF1E00BC6BAA /* PhaserBullet.plist in Resources */,
-				5F38E29E160FFF1E00BC6BAA /* RadarDish.plist in Resources */,
-				5F38E29F160FFF1E00BC6BAA /* SoundEffects.plist in Resources */,
-				5F38E2A0160FFF1E00BC6BAA /* Viking.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3253,6 +3243,8 @@
 				5FA6417C160A18C9007B3E1F /* GameCharacter.cpp in Sources */,
 				5FA6417F160A18E9007B3E1F /* Viking.cpp in Sources */,
 				5FA64182160A192A007B3E1F /* RadarDish.cpp in Sources */,
+				5F59335C1615F0230091ECB9 /* Mallet.cpp in Sources */,
+				5F5933641615F5CC0091ECB9 /* Health.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

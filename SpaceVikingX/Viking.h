@@ -32,6 +32,7 @@ public:
     void initAnimations();
     bool init();
     
+    CC_SYNTHESIZE_RETAIN(CCAnimation*, vikingDeathAnim, VikingDeathAnim)
     // Standing, Breathing, Walking
     CC_SYNTHESIZE_RETAIN(CCAnimation*, breathingAnim, BreathingAnim)
     CC_SYNTHESIZE_RETAIN(CCAnimation*, breathingMalletAnim, BreathingMalletAnim)
@@ -55,15 +56,15 @@ public:
     CC_SYNTHESIZE_RETAIN(CCAnimation*, phaserShockAnim, PhaserShockAnim)
     CC_SYNTHESIZE_RETAIN(CCAnimation*, deathAnim, DeathAnim)
 
-    CC_SYNTHESIZE(SneakyJoystick, joystick, Joystick)
-    CC_SYNTHESIZE(SneakyButton, jumpButton, jumpButton)
-    CC_SYNTHESIZE(SneakyButton, attackButton, attackButton)
+    CC_SYNTHESIZE(SneakyJoystick*, joystick, Joystick)
+    CC_SYNTHESIZE(SneakyButton*, jumpButton, jumpButton)
+    CC_SYNTHESIZE(SneakyButton*, attackButton, attackButton)
 
 private:
     LastPunchType myLastPunch;
     bool isCarryingMallet;
     CCSpriteFrame *standingFrame;
-     float millisecondsStayingIdle;
+    float millisecondsStayingIdle;
 };
 
 #endif /* defined(__SpaceVikingX__Viking__) */
